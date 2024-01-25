@@ -6,6 +6,7 @@ const userSchema = new mongoose.Schema({
     username: String,
     email: String,
     password: String
+    //pass in playlists to controller
   })
   
   userSchema.pre('save', async function(next) {
