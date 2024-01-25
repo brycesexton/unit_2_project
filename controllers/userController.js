@@ -1,56 +1,65 @@
-const User = require ('../models/user')
-const Playlist = require ('../models/playlist')
+const User = require('../models/user')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
-
-exports.create = async (req, res) => {
-    try {
-        const createdUser = await User.create(req.body)
-        res.status(200).json(createdUser)
+exports.auth = async (req, res, next) => {
+  try {
+    const token = req.header('Authorization').replace('Bearer ', '')
+    const data = jwt.verify(token, 'secret')
+    const user = await User.findOne({ _id: data._id })
+    if (!user) {
+      throw new Error()
     }
-    catch(error){
-        res.status(400).json({msg: error.message})
-    }
+    req.user = user
+    next()
+  } catch (error) {
+    res.status(401).send('Not authorized')
+  }
 }
 
-exports.index = async (req, res) => {
-    try {
-        const foundUsers = await User.find(req.body)
-        res.status(200).json(foundUsers)
-    }
-    catch(error){
-        res.status(400).json({msg: error.message})
-    }
+exports.createUser = async (req, res) => {
+  try{
+    const user = new User(req.body)
+    await user.save()
+    const token = await user.generateAuthToken()
+    res.json({ user, token })
+  } catch(error){
+    res.status(400).json({message: error.message})
+  }
 }
 
-exports.show = async (req, res) => {
-    try {
-        const foundUser = await User.findOne({_id: req.params.id})
-        // .populate('song genre')??? 
-        res.status(200).json(foundUser)
+exports.loginUser = async (req, res) => {
+  try{
+    const user = await User.findOne({ email: req.body.userName })
+    if (!user || !await bcrypt.compare(req.body.password, user.password)) {
+      res.status(400).send('Invalid')
+    } else {
+      const token = await user.generateAuthToken()
+      res.json({ user, token })
     }
-    catch(error){
-        res.status(400).json({msg: error.message})
-    }
+  } catch(error){
+    res.status(400).json({message: error.message})
+  }
 }
 
-exports.createPlaylist = async (req, res) => {
-    try {
-        const foundPlaylist = await Playlist.findOne ({_id: req.params.playlistId})
-        if(!foundPlaylist) throw new Error (`could no locate the performer with the id of ${req.params.playlistId}`)
-        const foundUser = await User.findOne ({_id: req.params.userId})
-        if(!foundUser) throw new Error (`could no locate the movie with the id of ${req.params.userId}`)
-        //many to many
-        foundUser.playlist.push(foundPlaylist._id)
-        foundPerformer.credits.push(foundM._id)
-        await foundMovie.save()
-        await foundPerformer.save()
-        res.status(200).json({
-            msg: `successfully associated playlist with id ${req.params.performerId} with movie ${req.params.movieId}`,
-            movie: foundMovie,
-            performer: foundPerformer
-    
-        })
-    } catch(error){
-        res.status(400).json({msg: error.message})
-    }
+exports.updateUser = async (req, res) => {
+  try{
+    const updates = Object.keys(req.body)
+    const user = await User.findOne({ _id: req.params.id })
+    updates.forEach(update => user[update] = req.body[update])
+    await user.save()
+    res.json(user)
+  }catch(error){
+    res.status(400).json({message: error.message})
+  }
+  
+}
+
+exports.deleteUser = async (req, res) => {
+  try{
+    await req.user.deleteOne()
+    res.json({ message: 'User deleted' })
+  }catch(error){
+    res.status(400).json({message: error.message})
+  }
 }
