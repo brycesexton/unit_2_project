@@ -33,22 +33,25 @@ exports.show = async (req, res) => {
 
 exports.addSong = async (req, res) => {
     try {
-        const foundSong = await Song.findOne ({_id: req.params.songId})
-        if(!foundSong) throw new Error (`could no locate the song with the id of ${req.params.songId}`)
-        const foundPlaylist = await Playlist.findOne ({_id: req.params.playlistId})
-        if(!foundPlaylist) throw new Error (`could no locate the playlist with the id of ${req.params.playlistId}`)
-        //many to many
-        foundPlaylist.cast.push(foundPlaylist._id) //change cast
-        foundSong.credits.push(foundPlaylist._id) //change credits
-        await foundMovie.save()
+        const foundSong = await Songs.findOne({_id: req.params.songId})
+        if (!foundSong) throw new Error(`Could not locate the song with the id of ${req.params.songId}`)
+
+        const foundPlaylist = await Playlist.findOne({_id: req.params.playlistId})
+        if (!foundPlaylist) throw new Error(`Could not locate the playlist with the id of ${req.params.playlistId}`)
+
+        // Many-to-Many Relationship
+        foundPlaylist.trackInfo.push(foundSong._id)
+        foundSong.trackInfo.push(foundPlaylist._id)
+
+        await foundPlaylist.save()
         await foundSong.save()
+
         res.status(200).json({
-            msg: `successfully associated song with id ${req.params.songId} with playlist ${req.params.playlistId}`,
+            msg: `Successfully associated song with id ${req.params.songId} with playlist ${req.params.playlistId}`,
             playlist: foundPlaylist,
             song: foundSong
-    
         })
-    } catch(error){
+    } catch (error) {
         res.status(400).json({msg: error.message})
     }
 }
