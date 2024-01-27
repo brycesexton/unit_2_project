@@ -2,23 +2,21 @@ const Playlist = require ('../models/playlist')
 const Songs = require ('../models/songs')
 
 exports.create = async (req, res) => {
-    try {
-        const createdPlaylist = await Playlist.create(req.body)
-        res.status(200).json(createdPlaylist)
-    }
-    catch(error){
-        res.status(400).json({msg: error.message})
-    }
+  try {
+    const createdPlaylist = await Playlist.create(req.body)
+    res.status(201).json(createdPlaylist) 
+  } catch (error) {
+    res.status(400).json({ msg: error.message })
+  }
 }
 
 exports.index = async (req, res) => {
-    try {
-        const foundPlaylists = await Playlist.find(req.body)
-        res.status(200).json(foundPlaylists)
-    }
-    catch(error){
-        res.status(400).json({msg: error.message})
-    }
+  try {
+    const foundPlaylists = await Playlist.find(req.body)
+    res.status(200).json(foundPlaylists)
+  } catch (error) {
+    res.status(400).json({ msg: error.message })
+  }
 }
 
 exports.show = async (req, res) => {

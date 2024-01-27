@@ -1,10 +1,11 @@
 const express = require('express')
 const router = express.Router()
 const playlistController = require('../controllers/playlistController')
+const userController = require ('../controllers/userController')
 
-router.post('/', playlistController.create)
+router.post('/', userController.auth, playlistController.create)
 router.get('/', playlistController.index)
-router.put('/:id', playlistController.update)
+router.put('/:id', userController.auth, playlistController.update)
 router.get('/:playlistId/songs/:songId', playlistController.addSong)
 router.get('/:id', playlistController.show)
 
