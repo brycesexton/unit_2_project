@@ -55,3 +55,26 @@ exports.addSong = async (req, res) => {
         res.status(400).json({msg: error.message})
     }
 }
+///////////////////////////////////////////////
+exports.update = async (req, res) => {
+  const { id } = req.params;
+  const { genre, trackInfo } = req.body;
+
+  try {
+    const playlist = await Playlist.findById(id);
+
+    if (!playlist) {
+      return res.status(404).json({ message: 'Playlist not found' });
+    }
+
+    playlist.genre = genre;
+    playlist.trackInfo = trackInfo; 
+
+    await playlist.save();
+
+    res.status(200).json({ message: 'Playlist updated successfully', playlist });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};

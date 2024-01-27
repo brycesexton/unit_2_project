@@ -39,8 +39,7 @@ exports.addSong = async (req, res) => {
 
         const foundPlaylist = await Playlist.findOne({_id: req.params.playlistId})
         if (!foundPlaylist) throw new Error(`Could not locate the playlist with the id of ${req.params.playlistId}`)
-
-        // Many-to-Many Relationship
+        
         foundPlaylist.trackInfo.push(foundSong._id)
         foundSong.trackInfo.push(foundPlaylist._id)
 
@@ -56,3 +55,27 @@ exports.addSong = async (req, res) => {
         res.status(400).json({msg: error.message})
     }
 }
+
+exports.update = async (req, res) => {
+    const { id } = req.params;
+    const { artistName, songName } = req.body
+  
+    try {
+      const song = await Songs.findById(id)
+  
+      if (!song) {
+        return res.status(404).json({ message: 'Song not found' })
+      }
+
+      song.artistName = artistName
+      song.songName = songName;
+
+      await song.save();
+
+      res.status(200).json({ message: 'Song updated successfully', song })
+    } catch (error) {
+      console.error(error)
+      res.status(500).json({ message: 'Internal server error' })
+    }
+  };
+  
