@@ -9,4 +9,3 @@ mongoose.connection.once('open', () => console.log('Mongo is up'))
 app.listen(PORT, () => {
     console.log(`${PORT} is firing`)
 })
-
