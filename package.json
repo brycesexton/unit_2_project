@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "jest": {
     "testEnvironment": "node"

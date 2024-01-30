@@ -6,7 +6,7 @@ const userController = require ('../controllers/userController')
 router.post('/', userController.auth, playlistController.create)
 router.get('/', playlistController.index)
 router.put('/:id', userController.auth, playlistController.update)
-router.get('/:playlistId/songs/:songId', playlistController.addSong)
+router.post('/:playlistId/songs/:songId', playlistController.addSong)
 router.get('/:id', playlistController.show)
 
 module.exports = router

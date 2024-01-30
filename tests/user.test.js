@@ -9,7 +9,7 @@ let mongoServer;
 
 beforeAll(async () => {
   mongoServer = await MongoMemoryServer.create()
-  await mongoose.connect(mongoServer.getUri(), { useNewUrlParser: true })
+  await mongoose.connect(mongoServer.getUri(), { useNewUrlParser: true, useUnifiedTopology: true })
 })
 
 afterAll(async () => {
@@ -17,12 +17,11 @@ afterAll(async () => {
   await mongoServer.stop()
 })
 
-describe('endpoints', () => {
+describe('user endpoints', () => {
   test('It should create a user', async () => {
     const response = await request(app)
         .post('/users')
         .send({ username: 'test 1234', password: 'p1213rd' })
-        console.log(response.body)
     expect(response.statusCode).toBe(200)
     // expect(response.body.user.username).toEqual('username')
     expect(response.body).toHaveProperty('token')
@@ -57,8 +56,6 @@ describe('endpoints', () => {
     const response = await request(app)
       .delete(`/users/${user._id}`)
       .set('Authorization', `Bearer ${token}`)
-      console.log(response)
-
-    expect(response.statusCode).toBe(204)
+      expect(response.statusCode).toBe(204)
   })
 })
