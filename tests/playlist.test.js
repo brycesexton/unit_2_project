@@ -62,13 +62,13 @@ describe('playlist endpoints', () => {
     await Promise.all([song.save(), playlist.save()])
   
     const response = await request(app)
-      .post(`/playlist/${playlist._id}/songs`)
+      .post(`/playlist/${playlist._id}/songs/${song._id}`)
       .set('Authorization', `Bearer ${authToken}`)
-      .send({ songId: song._id })
   
-    console.log(response.body)
-  
-    expect(response.statusCode).toBe(200)
+    expect(response.status).toBe(200)
+    expect(response.body.msg).toEqual(
+      `Successfully associated song with id ${song._id} with playlist ${playlist._id}`
+    )
   })
 
   test('should update a playlist', async () => {

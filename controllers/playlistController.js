@@ -36,8 +36,6 @@ exports.addSong = async (req, res) => {
 
     const foundPlaylist = await Playlist.findOne({ _id: req.params.playlistId })
     if (!foundPlaylist) throw new Error(`Could not locate the playlist with the id of ${req.params.playlistId}`)
-
-    // Check if the song is already associated with the playlist
     if (foundPlaylist.trackInfo.includes(foundSong._id)) {
       return res.status(400).json({ msg: `Song with id ${req.params.songId} is already in the playlist` })
     }
@@ -50,12 +48,12 @@ exports.addSong = async (req, res) => {
       msg: `Successfully associated song with id ${req.params.songId} with playlist ${req.params.playlistId}`,
       playlist: foundPlaylist,
       song: foundSong
-    });
+    })
   } catch (error) {
     res.status(400).json({ msg: error.message })
   }
 }
-///////////////////////////////////////////////
+
 exports.update = async (req, res) => {
   const { id } = req.params
   const { genre, trackInfo } = req.body
