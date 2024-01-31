@@ -5,21 +5,23 @@
 </p>
 
 <h3>Installation Steps (in order)</h3>
-<li>
-  <ul>Make a directory</ul>
-  <ul>Git init (once inside the directory)</ul>
-  <ul>Create server.js, .env, .gitignore etc files</ul>
-  <ul>Npm init -y</ul>
-  <ul>Npm i express dotenv crypt jsonwebtoken mongoose </ul>
-  <ul>Npm i -D nodemon jest supertest</ul>
-  <ul>Go into package.json  —> add “dev”: “nodemon” to the scripts & create jest section</ul>
-  <ul>Make routes, controllers & models folders </ul>
-  <ul>Create JavaScript files in each of those folders for the users, playlists, & songs</ul>
-  <ul>Create app.js and server.js files</ul>
-  <ul>Create a git repository</ul>
-  <ul>Git add -A</ul>
-  <ul>Git commit -m “first commit”</ul>
-  <ul>Git remote add origin (your git link)</ul>
-  <ul>Ensure you are on the main branch</ul>
-  <ul>Git push -u  origin main</ul>
-</li>
+<ul>
+  <li>Make a main directory in your command line</li>
+  <li>Git init (once inside said directory)</li>
+  <li>Create server.js, .env, .gitignore files</li>
+  <li>Npm init -y</li>
+  <li>Npm i express dotenv crypt jsonwebtoken mongoose</li>
+  <li>Npm i -D nodemon jest supertest</li>
+  <li>Type code . to open your coding software</li>
+  <li>Go into the package.json file —> add “dev”: “nodemon” & "test": "jest" to the scripts section</li>
+  <li>Make routes, controllers & models folders</li>
+  <li>Create JavaScript files in each of the aforementioned folders for the user, playlist, & songs</li>
+  <li>Create app.js and server.js files</li>
+  <li>Open up your browser & head to <a href = 'www.github.com' a> </li>
+  <li>Create a git repository</li>
+  <li>Git add -A</li>
+  <li>Git commit -m “first commit”</li>
+  <li>Git remote add origin (your git link)</li>
+  <li>Ensure you are on the main branch</li>
+  <li>Git push -u  origin main</li>
+</ul>
