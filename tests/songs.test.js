@@ -12,7 +12,7 @@ let user
     
 beforeAll(async () => {
     mongoServer = await MongoMemoryServer.create();
-    await mongoose.connect(mongoServer.getUri(), { useNewUrlParser: true, useUnifiedTopology: true })
+    await mongoose.connect(mongoServer.getUri())
     
     user = new User({ username: 'user', password: 'password' })
     await user.save();

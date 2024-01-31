@@ -3,6 +3,7 @@ const router = express.Router()
 const playlistController = require('../controllers/playlistController')
 const userController = require ('../controllers/userController')
 
+
 router.post('/', userController.auth, playlistController.create)
 router.get('/', playlistController.index)
 router.put('/:id', userController.auth, playlistController.update)

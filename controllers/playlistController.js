@@ -1,10 +1,13 @@
 const Playlist = require ('../models/playlist')
 const Songs = require ('../models/songs')
+const User = require('../models/user')
 
 exports.create = async (req, res) => {
   try {
     const createdPlaylist = await Playlist.create(req.body)
-    res.status(201).json(createdPlaylist) 
+    req.user.playlists.push(createdPlaylist._id)
+    await req.user.save()
+    res.status(201).json(createdPlaylist)
   } catch (error) {
     res.status(400).json({ msg: error.message })
   }
@@ -32,12 +35,12 @@ exports.show = async (req, res) => {
 exports.addSong = async (req, res) => {
   try {
     const foundSong = await Songs.findOne({ _id: req.params.songId })
-    if (!foundSong) throw new Error(`Could not locate the song with the id of ${req.params.songId}`)
+    if (!foundSong) throw new Error(`could not locate the song ${req.params.songId}`)
 
     const foundPlaylist = await Playlist.findOne({ _id: req.params.playlistId })
-    if (!foundPlaylist) throw new Error(`Could not locate the playlist with the id of ${req.params.playlistId}`)
+    if (!foundPlaylist) throw new Error(`could not locate the playlist ${req.params.playlistId}`)
     if (foundPlaylist.trackInfo.includes(foundSong._id)) {
-      return res.status(400).json({ msg: `Song with id ${req.params.songId} is already in the playlist` })
+      return res.status(400).json({ msg: `song ${req.params.songId} is currently in the playlist` })
     }
 
     foundPlaylist.trackInfo.push(foundSong._id);
@@ -45,7 +48,7 @@ exports.addSong = async (req, res) => {
     await foundPlaylist.save();
 
     res.status(200).json({
-      msg: `Successfully associated song with id ${req.params.songId} with playlist ${req.params.playlistId}`,
+      msg: `associated ${req.params.songId} with ${req.params.playlistId} playlist`,
       playlist: foundPlaylist,
       song: foundSong
     })
@@ -62,7 +65,7 @@ exports.update = async (req, res) => {
     const playlist = await Playlist.findById(id)
 
     if (!playlist) {
-      return res.status(404).json({ message: 'Playlist not found' })
+      return res.status(404).json({ message: 'playlist not found' })
     }
 
     playlist.genre = genre
@@ -70,7 +73,7 @@ exports.update = async (req, res) => {
 
     await playlist.save()
 
-    res.status(200).json({ message: 'Playlist updated', playlist })
+    res.status(200).json({ message: 'playlist updated', playlist })
   } catch (error) {
     console.error(error)
     res.status(500).json({ message: 'error' })

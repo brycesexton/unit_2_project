@@ -4,12 +4,12 @@ const { MongoMemoryServer } = require('mongodb-memory-server')
 const app = require('../app')
 const User = require('../models/user')
 
-let mongoServer;
+let mongoServer
 
 
 beforeAll(async () => {
   mongoServer = await MongoMemoryServer.create()
-  await mongoose.connect(mongoServer.getUri(), { useNewUrlParser: true, useUnifiedTopology: true })
+  await mongoose.connect(mongoServer.getUri())
 })
 
 afterAll(async () => {
@@ -23,7 +23,6 @@ describe('user endpoints', () => {
         .post('/users')
         .send({ username: 'test 1234', password: 'p1213rd' })
     expect(response.statusCode).toBe(200)
-    // expect(response.body.user.username).toEqual('username')
     expect(response.body).toHaveProperty('token')
 })
 
