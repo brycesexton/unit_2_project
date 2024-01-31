@@ -40,7 +40,6 @@ describe('playlist endpoints', () => {
     expect(response.statusCode).toBe(201)
   
     const updatedUser = await User.findOne({ _id: user._id })
-    console.log(updatedUser)
     expect(updatedUser.playlists).toHaveLength(1)
     expect(updatedUser.playlists[0]).toBeInstanceOf(mongoose.Types.ObjectId)
   })

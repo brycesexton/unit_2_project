@@ -18,13 +18,14 @@ afterAll(async () => {
 })
 
 describe('user endpoints', () => {
+
   test('It should create a user', async () => {
     const response = await request(app)
         .post('/users')
         .send({ username: 'test 1234', password: 'p1213rd' })
     expect(response.statusCode).toBe(200)
     expect(response.body).toHaveProperty('token')
-})
+  })
 
   test('should login a user', async () => {
     const user = new User({ username: 'username', password: 'password' })
@@ -36,6 +37,16 @@ describe('user endpoints', () => {
 
     expect(response.statusCode).toBe(200)
   })
+
+  // test('should show user deets', async () => {
+  //   const user = new User({ username: 'sam', password: 'samspass' })
+  //   await user.save()
+  
+  //   const response = await request(app).get('/user/profile')
+  
+  //   expect(response.statusCode).toBe(200)
+  //   expect(response.body).toHaveProperty('username', 'sam')
+  // })
 
   test('should update a user', async () => {
     const user = new User({ username: 'username', password: 'password' })
@@ -57,4 +68,5 @@ describe('user endpoints', () => {
       .set('Authorization', `Bearer ${token}`)
       expect(response.statusCode).toBe(204)
   })
+
 })
