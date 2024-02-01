@@ -17,11 +17,12 @@
   <li>Make routes, controllers & models folders</li>
   <li>Create JavaScript files in each of the aforementioned folders for the user, playlist, & songs</li>
   <li>Create app.js and server.js files</li>
-  <li>Open up your browser & head to <a href = 'www.github.com' a> </li>
-  <li>Create a git repository</li>
+  <li>Open up your browser & head to <a href="www.github.com">GitHub</a></li>
+  <li>Create a git repository for the API</li>
+  <li>Head back to your terminal</li>
   <li>Git add -A</li>
   <li>Git commit -m “first commit”</li>
-  <li>Git remote add origin (your git link)</li>
-  <li>Ensure you are on the main branch</li>
-  <li>Git push -u  origin main</li>
+  <li>Git remote add origin (your github repo link)</li>
+  <li>Git branch -M main </li>
+  <li>Git push -u origin main</li>
 </ul>
