@@ -7,7 +7,29 @@
 <h3><a href= "https://app.mural.co/t/tipsplitter4044/m/tipsplitter4044/1705449330418/184ff22033ee55a0b020ddac0c74291ce76b1495?sender=u9b5c6057df9541d75a930487">Entity Relationship Diagram</a></h3>
 
 ```
-
+Playlist API
+    |-- models
+    |   |-- user.js
+    |   |-- playlist.js
+    |   |-- songs.js
+    |-- routes
+    |   |-- userRouter.js
+    |   |-- playlistRouter.js
+    |   |-- songsRouter.js
+    |-- controllers
+    |   |-- userController.js
+    |   |-- playlistController.js
+    |   |-- songsController.js
+    |-- tests
+    |   |-- user.test.js
+    |   |-- playlist.test.js
+    |   |-- songs.test.js
+    |-- .gitignore
+    |-- app.js
+    |-- server.js
+    |-- package-lock.json
+    |-- package.json
+    |-- README.md
 ```
 
 <h4>Installation Steps (in order)</h4>
