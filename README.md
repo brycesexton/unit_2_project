@@ -26,3 +26,5 @@
   <li>Git branch -M main </li>
   <li>Git push -u origin main</li>
 </ul>
+
+<h2><a href= "https://app.mural.co/t/tipsplitter4044/m/tipsplitter4044/1705449330418/184ff22033ee55a0b020ddac0c74291ce76b1495?sender=u9b5c6057df9541d75a930487">Entity Relationshup Diagram</a></h2>
