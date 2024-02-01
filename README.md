@@ -39,38 +39,10 @@
 -npm run dev
 -npm test
 ```
-
-<h4>Organization of Directories</h4>
-
-```
-Playlist API
-    |-- models
-    |   |-- user.js
-    |   |-- playlist.js
-    |   |-- songs.js
-    |-- routes
-    |   |-- userRouter.js
-    |   |-- playlistRouter.js
-    |   |-- songsRouter.js
-    |-- controllers
-    |   |-- userController.js
-    |   |-- playlistController.js
-    |   |-- songsController.js
-    |-- tests
-    |   |-- user.test.js
-    |   |-- playlist.test.js
-    |   |-- songs.test.js
-    |-- .gitignore
-    |-- app.js
-    |-- server.js
-    |-- package-lock.json
-    |-- package.json
-    |-- README.md
-```
-<h4>Available Routes</h4>
+<h4>Available Routes //no need to add request& response for get and delete</h4>
 
 <h6>USER</h6>
-  <ul>
+  <ul> 
     <li>router.post('/', userController.createUser)</li>
     <li>router.post('/login', userController.loginUser)</li>
     <li>router.get ('/profile', userController.auth, userController.showUser)</li>
