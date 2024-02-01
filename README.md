@@ -31,6 +31,14 @@
   <li>Git push -u origin main</li>
 </ul>
 
+<h6>Terminal Commands</h6>
+
+```
+-npm i
+-npm run dev
+-npm test
+```
+
 <h4>Organization of Directories</h4>
 
 ```
