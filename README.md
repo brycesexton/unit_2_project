@@ -1,8 +1,9 @@
 <h1>Playlist API</h1>
 
-<h3>Brief Description</h3>
+<h4>Description</h4>
 <p>This application is a music playlist API that utilizes a node.js, mongoDB, express, and npm stack. There are users, playlists, and songs. The the playlists are owned by the users and the songs are selected by users to go into the user's preferred playlist.
 </p>
+<h4><a href= "https://app.mural.co/t/tipsplitter4044/m/tipsplitter4044/1705449330418/184ff22033ee55a0b020ddac0c74291ce76b1495?sender=u9b5c6057df9541d75a930487">Entity Relationship Diagram</a></h4>
 
 <h4>Installation</h4>
 <ul>
@@ -66,11 +67,8 @@ Playlist API
     |-- package.json
     |-- README.md
 ```
-
-<h2><a href= "https://app.mural.co/t/tipsplitter4044/m/tipsplitter4044/1705449330418/184ff22033ee55a0b020ddac0c74291ce76b1495?sender=u9b5c6057df9541d75a930487">Entity Relationship Diagram</a></h2>
-
 <h4>Available Routes</h4>
-<h5>USER</h5>
+<h6>USER</h6>
   <ul>
     <li>router.post('/', userController.createUser)</li>
     <li>router.post('/login', userController.loginUser)</li>
@@ -79,7 +77,7 @@ Playlist API
     <li>router.put('/:id', userController.updateUser)</li>
     <li>router.delete('/:id', userController.auth, userController.deleteUser)</li>
   </ul>
-<h5>PLAYLIST</h5>
+<h6>PLAYLIST</h6>
   <ul>
     <li>router.post('/', userController.auth, playlistController.create)</li>
     <li>router.get('/', playlistController.index)</li>
@@ -87,7 +85,7 @@ Playlist API
     <li>router.post('/:playlistId/songs/:songId', playlistController.addSong)</li>
     <li>router.get('/:id', playlistController.show)</li>
   </ul>
-<h5>SONGS</h5>
+<h6>SONGS</h6>
   <ul>
     <li>router.post('/', userController.auth, songsController.create)</li>
     <li>router.get('/', songsController.index)</li>
