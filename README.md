@@ -14,6 +14,7 @@
   <li>Npm i -D nodemon jest supertest</li>
   <li>Type code . to open your coding software</li>
   <li>Go into the package.json file —> add “dev”: “nodemon” & "test": "jest" to the scripts section</li>
+  <li>****JEST SHIT***</li>
  <li>Within your .env file add your unique MongoDB connection string. It will look like this: MONGO_URI=mongodb+srv://**your username**:**password**.mongodb.net/**projectname**?retryWrites=true&w=majority
  </li>
  <li>Create a hash by visiting <a href="https://emn178.github.io/online-tools/sha256.html">SHA256</a>. Then put JWT.SECRET= **yourhash** into your .env</li>
