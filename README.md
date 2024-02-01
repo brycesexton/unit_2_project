@@ -6,8 +6,12 @@
 
 <h3><a href= "https://app.mural.co/t/tipsplitter4044/m/tipsplitter4044/1705449330418/184ff22033ee55a0b020ddac0c74291ce76b1495?sender=u9b5c6057df9541d75a930487">Entity Relationship Diagram</a></h3>
 
-<h4>Installation Steps (in order)</h4>
+```
 
+```
+
+<h4>Installation Steps (in order)</h4>
+```
 <ul>
   <li>Make a main directory in your command line</li>
   <li>Git init (once inside said directory)</li>
@@ -29,6 +33,6 @@
   <li>Git branch -M main </li>
   <li>Git push -u origin main</li>
 </ul>
-
+```
 
 
