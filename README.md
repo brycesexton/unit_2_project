@@ -68,6 +68,7 @@ Playlist API
     |-- README.md
 ```
 <h4>Available Routes</h4>
+
 <h6>USER</h6>
   <ul>
     <li>router.post('/', userController.createUser)</li>
