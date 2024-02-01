@@ -1,7 +1,7 @@
 <h1>Playlist API</h1>
 
-<h3>Description</h3>
-<p>This application is a music playlist API that utilizes a node.js, mongoDB, express, and npm tech stack. There are users, playlists, and songs. The the playlists are owned by the users and the songs are selected by users to go into the user's preferred playlist.
+<h3>Brief Description</h3>
+<p>This application is a music playlist API that utilizes a node.js, mongoDB, express, and npm stack. There are users, playlists, and songs. The the playlists are owned by the users and the songs are selected by users to go into the user's preferred playlist.
 </p>
 
 <h3><a href= "https://app.mural.co/t/tipsplitter4044/m/tipsplitter4044/1705449330418/184ff22033ee55a0b020ddac0c74291ce76b1495?sender=u9b5c6057df9541d75a930487">Entity Relationship Diagram</a></h3>
@@ -33,7 +33,6 @@ Playlist API
 ```
 
 <h4>Installation Steps (in order)</h4>
-```
 <ul>
   <li>Make a main directory in your command line</li>
   <li>Git init (once inside said directory)</li>
@@ -43,6 +42,9 @@ Playlist API
   <li>Npm i -D nodemon jest supertest</li>
   <li>Type code . to open your coding software</li>
   <li>Go into the package.json file —> add “dev”: “nodemon” & "test": "jest" to the scripts section</li>
+ <li>Within your .env file add your unique MongoDB connection string. It will look like this: MONGO_URI=mongodb+srv://**your username**:**password**.mongodb.net/**projectname**?retryWrites=true&w=majority
+ </li>
+ <li>Create a hash by visiting <a href="https://emn178.github.io/online-tools/sha256.html">SHA256</a>. Then put JWT.SECRET= **yourhash** into your .env</li>
   <li>Make routes, controllers & models folders</li>
   <li>Create JavaScript files in each of the aforementioned folders for the user, playlist, & songs</li>
   <li>Create app.js and server.js files</li>
@@ -55,6 +57,5 @@ Playlist API
   <li>Git branch -M main </li>
   <li>Git push -u origin main</li>
 </ul>
-```
 
 
