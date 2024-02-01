@@ -60,4 +60,30 @@ Playlist API
 
 <h2><a href= "https://app.mural.co/t/tipsplitter4044/m/tipsplitter4044/1705449330418/184ff22033ee55a0b020ddac0c74291ce76b1495?sender=u9b5c6057df9541d75a930487">Entity Relationship Diagram</a></h2>
 
+<h4>Available Routes</h4>
+<h5>USER</h5>
+  <ul>
+    <li>router.post('/', userController.createUser)</li>
+    <li>router.post('/login', userController.loginUser)</li>
+    <li>router.get ('/profile', userController.auth, userController.showUser)</li>
+    <li>router.post('/playlist', userController.auth, playlistController.create)</li>
+    <li>router.put('/:id', userController.updateUser)</li>
+    <li>router.delete('/:id', userController.auth, userController.deleteUser)</li>
+  </ul>
+<h5>PLAYLIST</h5>
+  <ul>
+    <li>router.post('/', userController.auth, playlistController.create)</li>
+    <li>router.get('/', playlistController.index)</li>
+    <li>router.put('/:id', userController.auth, playlistController.update)</li>
+    <li>router.post('/:playlistId/songs/:songId', playlistController.addSong)</li>
+    <li>router.get('/:id', playlistController.show)</li>
+  </ul>
+<h5>SONGS</h5>
+  <ul>
+    <li>router.post('/', userController.auth, songsController.create)</li>
+    <li>router.get('/', songsController.index)</li>
+    <li>router.put('/:id', userController.auth, songsController.update)</li>
+    <li>router.get('/:id', songsController.show)</li>
+  </ul>
+
 
