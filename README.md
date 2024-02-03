@@ -57,13 +57,13 @@
     <ul>
             <li>PUT /:id</li>
             <li>userController.updateUser</li>
-        </ul>
+    </ul>
     <li>Delete User</li>
     <ul>
             <li>DELETE /:id</li>
             <li>Middleware: userController.auth</li>
             <li>userController.deleteUser</li>
-        </ul>
+    </ul>
   </ul>
 <h6>PLAYLIST</h6>
   <ul>
@@ -72,32 +72,27 @@
             <li>POST /</li>
             <li>Middleware: userController.auth</li> 
             <li>playlistController.create</li>
-        </ul>
     </ul>
     <li>List Playlists</li>
     <ul>
             <li>GET /</li>
             <li>playlistController.index</li>
-        </ul>
     </ul>
     <li>Update Playlist</li>
     <ul>
             <li>PUT /:id</li>
             <li>Middleware: userController.auth,</li>
             <li>playlistController.update</li>
-        </ul>
     </ul>
     <li>Add Song to Playlist</li>
     <ul>
             <li>POST /:playlistId/songs/:songId</li>
             <li>playlistController.addSong</li>
-        </ul>
     </ul>
     <li>Show Playlist</li>
     <ul>
             <li>GET /:id</li>
             <li>playlistController.show</li>
-        </ul>
     </ul>
   </ul>
 <h6>SONGS</h6>
@@ -112,20 +107,17 @@
     <ul>
             <li>GET /</li>
             <li>songsController.index</li>
-        </ul>
     </ul>
     <li>Update Song</li>
     <ul>
             <li>PUT /:id</li>
             <li>Middleware: userController.auth</li>
             <li>songsController.update</li>
-        </ul>
     </ul>
     <li>Show Song</li>
     <ul>
             <li>GET /:id</li>
             <li>songsController.show</li>
-        </ul>
     </ul>
   </ul>
 
