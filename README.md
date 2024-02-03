@@ -9,8 +9,7 @@
 <ul>
   <li>Make a main directory in your command line</li>
   <li>Create  .env, .gitignore files</li>
-  <li>Npm i express dotenv crypt jsonwebtoken mongoose</li>
-  <li>Npm i -D nodemon jest supertest mongodb-memory-server</li>
+  <li>Npm i (to install all packages)</li>
   <li>Type code . to open your coding software</li>
   
  <li>Within your .env file add your unique MongoDB connection string. It will look like this: MONGO_URI=mongodb+srv://**your username**:**password**.mongodb.net/**projectname**?retryWrites=true&w=majority
