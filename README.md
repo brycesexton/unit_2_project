@@ -43,26 +43,102 @@
 
 <h6>USER</h6>
   <ul> 
-    <li>router.post('/', userController.createUser)</li>
-    <li>router.post('/login', userController.loginUser)</li>
-    <li>router.get ('/profile', userController.auth, userController.showUser)</li>
-    <li>router.post('/playlist', userController.auth, playlistController.create)</li>
-    <li>router.put('/:id', userController.updateUser)</li>
-    <li>router.delete('/:id', userController.auth, userController.deleteUser)</li>
+    <li>Create User</li>
+    <ul> 
+        <li>Endpoint: POST /</li>
+        <li>Controller: userController.createUser</li>
+    </ul>
+    <li>Login User</li>
+        <ul>
+            <li>Endpoint: POST /login</li>
+            <li>Controller: userController.loginUser</li>
+        </ul>
+    <li>User Profile</li>
+    <ul>
+            <li>GET /profile</li>
+            <li>Middleware: userController.auth</li>
+            <li>userController.showUser</li>
+        </ul>
+    <li>Create Playlist</li>
+    <ul>
+            <li>POST /playlist</li>
+            <li>Middleware: userController.auth</li>
+            <li>playlistController.create</li>
+        </ul>
+    <li>Update User</li>
+    <ul>
+            <li>PUT /:id</li>
+            <li>userController.updateUser</li>
+        </ul>
+    <li>Delete User</li>
+    <ul>
+            <li>DELETE /:id</li>
+            <li>Middleware: userController.auth</li>
+            <li>userController.deleteUser</li>
+        </ul>
   </ul>
 <h6>PLAYLIST</h6>
   <ul>
-    <li>router.post('/', userController.auth, playlistController.create)</li>
-    <li>router.get('/', playlistController.index)</li>
-    <li>router.put('/:id', userController.auth, playlistController.update)</li>
-    <li>router.post('/:playlistId/songs/:songId', playlistController.addSong)</li>
-    <li>router.get('/:id', playlistController.show)</li>
+    <li>Create Playlist</li>
+    <ul>
+            <li>POST /</li>
+            <li>Middleware: userController.auth</li> 
+            <li>playlistController.create</li>
+        </ul>
+    </ul>
+    <li>List Playlists</li>
+    <ul>
+            <li>GET /</li>
+            <li>playlistController.index</li>
+        </ul>
+    </ul>
+    <li>Update Playlist</li>
+    <ul>
+            <li>PUT /:id</li>
+            <li>Middleware: userController.auth,</li>
+            <li>playlistController.update</li>
+        </ul>
+    </ul>
+    <li>Add Song to Playlist</li>
+    <ul>
+            <li>POST /:playlistId/songs/:songId</li>
+            <li>playlistController.addSong</li>
+        </ul>
+    </ul>
+    <li>Show Playlist</li>
+    <ul>
+            <li>GET /:id</li>
+            <li>playlistController.show</li>
+        </ul>
+    </ul>
   </ul>
 <h6>SONGS</h6>
   <ul>
-    <li>router.post('/', userController.auth, songsController.create)</li>
-    <li>router.get('/', songsController.index)</li>
-    <li>router.put('/:id', userController.auth, songsController.update)</li>
-    <li>router.get('/:id', songsController.show)</li>
+    <li>Create Song</li>
+    <ul>
+            <li>POST /</li>
+            <li>Middleware: userController.auth</li>
+            <li>songsController.create</li>
+        </ul>
+    </ul>
+    <li>List Songs</li>
+    <ul>
+            <li>GET /</li>
+            <li>songsController.index</li>
+        </ul>
+    </ul>
+    <li>Update Song</li>
+    <ul>
+            <li>PUT /:id</li>
+            <li>Middleware: userController.auth</li>
+            <li>songsController.update</li>
+        </ul>
+    </ul>
+    <li>Show Song</li>
+    <ul>
+            <li>GET /:id</li>
+            <li>songsController.show</li>
+        </ul>
+    </ul>
   </ul>
 
