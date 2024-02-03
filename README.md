@@ -13,7 +13,7 @@
   <li>Npm i (to install all packages)</li>
   <li>Type code . to open your coding software</li>
   
- <li>Within your .env file add your unique MongoDB connection string. It will look like this: MONGO_URI=mongodb+srv://**your username**:**password**.mongodb.net/**projectname**?retryWrites=true&w=majority
+ <li>Within your .env file add your unique MongoDB connection string
  </li>
  <li>Create a hash by visiting <a href="https://emn178.github.io/online-tools/sha256.html">SHA256</a>. Then put JWT.SECRET= **yourhash** into your .env</li>
  <li>npm run dev</li>
