@@ -8,7 +8,8 @@
 <h4>Installation (in order)</h4>
 <ul>
   <li>Make a main directory in your command line</li>
-  <li>Create  .env, .gitignore files</li>
+  <li>cd into your new directory</li>
+  <li>Create .env file</li>
   <li>Npm i (to install all packages)</li>
   <li>Type code . to open your coding software</li>
   
