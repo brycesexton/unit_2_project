@@ -8,28 +8,14 @@
 <h4>Installation</h4>
 <ul>
   <li>Make a main directory in your command line</li>
-  <li>Git init (once inside said directory)</li>
-  <li>Create server.js, .env, .gitignore files</li>
-  <li>Npm init -y</li>
+  <li>Create  .env, .gitignore files</li>
   <li>Npm i express dotenv crypt jsonwebtoken mongoose</li>
-  <li>Npm i -D nodemon jest supertest</li>
+  <li>Npm i -D nodemon jest supertest mongodb-memory-server</li>
   <li>Type code . to open your coding software</li>
-  <li>Go into the package.json file —> add “dev”: “nodemon” & "test": "jest" to the scripts section</li>
-  <li>****JEST SHIT***</li>
+  
  <li>Within your .env file add your unique MongoDB connection string. It will look like this: MONGO_URI=mongodb+srv://**your username**:**password**.mongodb.net/**projectname**?retryWrites=true&w=majority
  </li>
  <li>Create a hash by visiting <a href="https://emn178.github.io/online-tools/sha256.html">SHA256</a>. Then put JWT.SECRET= **yourhash** into your .env</li>
-  <li>Make routes, controllers & models folders</li>
-  <li>Create JavaScript files in each of the aforementioned folders for the user, playlist, & songs</li>
-  <li>Create app.js and server.js files</li>
-  <li>Open up your browser & head to <a href="www.github.com">GitHub</a></li>
-  <li>Create a git repository for the API</li>
-  <li>Head back to your terminal</li>
-  <li>Git add -A</li>
-  <li>Git commit -m “first commit”</li>
-  <li>Git remote add origin (your github repo link)</li>
-  <li>Git branch -M main </li>
-  <li>Git push -u origin main</li>
 </ul>
 
 <h6>Terminal Commands</h6>
