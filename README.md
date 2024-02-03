@@ -107,7 +107,6 @@
             <li>POST /</li>
             <li>Middleware: userController.auth</li>
             <li>songsController.create</li>
-        </ul>
     </ul>
     <li>List Songs</li>
     <ul>
