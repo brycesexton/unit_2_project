@@ -5,7 +5,7 @@
 </p>
 <h4><a href= "https://app.mural.co/t/tipsplitter4044/m/tipsplitter4044/1705449330418/184ff22033ee55a0b020ddac0c74291ce76b1495?sender=u9b5c6057df9541d75a930487">Entity Relationship Diagram</a></h4>
 
-<h4>Installation</h4>
+<h4>Installation (in order)</h4>
 <ul>
   <li>Make a main directory in your command line</li>
   <li>Create  .env, .gitignore files</li>
@@ -16,6 +16,8 @@
  <li>Within your .env file add your unique MongoDB connection string. It will look like this: MONGO_URI=mongodb+srv://**your username**:**password**.mongodb.net/**projectname**?retryWrites=true&w=majority
  </li>
  <li>Create a hash by visiting <a href="https://emn178.github.io/online-tools/sha256.html">SHA256</a>. Then put JWT.SECRET= **yourhash** into your .env</li>
+ <li>npm run dev</li>
+ <li>npm run test</li>
 </ul>
 
 <h6>Terminal Commands</h6>
