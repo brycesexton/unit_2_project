@@ -27,18 +27,18 @@
 -npm run dev
 -npm test
 ```
-<h4>Available Routes //no need to add request& response for get and delete</h4>
+<h4>Endpoints, etc</h4>
 
 <h6>USER</h6>
   <ul> 
     <li>Create User</li>
     <ul> 
-        <li>Endpoint: POST /</li>
+        <li>POST /</li>
         <li>Controller: userController.createUser</li>
     </ul>
     <li>Login User</li>
         <ul>
-            <li>Endpoint: POST /login</li>
+            <li>POST /login</li>
             <li>Controller: userController.loginUser</li>
         </ul>
     <li>User Profile</li>
@@ -130,3 +130,4 @@
     </ul>
   </ul>
 
+<h2>submit pull requests to contribute to the project!</h2>
